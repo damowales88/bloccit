@@ -1,5 +1,11 @@
 == README
 
+The name of my app is
+
+** have-you-reddit **
+
+The link to the site is right [here]( https://have-you-reddit.herokuapp.com/ "have-you-reddit")
+
 ## Bloccit: a Reddit clone to teach the fundamentals of web development and Rails 4
 
 Made with my mentor at [Bloc](http://bloc.io)
