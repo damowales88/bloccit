@@ -10,10 +10,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = current_user.posts.build(post_params)
+      authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to @post
@@ -25,10 +27,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def update
     @post = Post.find(params[:id])
+    authorize @post
     if @post.update_attributes(post_params)
       flash[:notice] = "Post was updated!"
       redirect_to @post
