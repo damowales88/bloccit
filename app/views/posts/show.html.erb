@@ -13,9 +13,11 @@
     <p><%= markdown @post.body %></p>
     <p><%= image_tag(@post.postimage.small.url) %></p>
 
-    <%= render file: "/Users/Damo/code/bloccit/app/views/comments/_form", locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% if current_user %>
+      <%= render file: "/Users/Damo/code/bloccit/app/views/comments/_form", locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% end %>
 
-    <%= render file: "/Users/Damo/code/bloccit/app/views/comments/_comment" %>
+      <%= render file: "/Users/Damo/code/bloccit/app/views/comments/_comment" %>
 
   </div>
 </div>
