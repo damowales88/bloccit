@@ -1,12 +1,10 @@
 <h1>Topics</h1>
 
- <div class="col-md-4">
-    <% if policy(Topic.new).create? %>
-      <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-    <% end %>
-  </div>
 <div class="row">
   <div class="col-md-8">
+    <% if policy(Topic.new).create? %>
+      <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+    <% end %>    
     <% @topics.each do |topic| %>
       <div class="media">
         <div class="media-body">
@@ -14,8 +12,11 @@
             <%= link_to topic.name, topic %>
           </h4>
           <small>
-            <%= topic.description %>
-          </small>
+            <%= topic.description %></br>
+          </small> 
+            <sub><i>
+              submitted <%= time_ago_in_words(topic.created_at) %> ago
+            </i></sub>
         </div>
       </div>
     <% end %>

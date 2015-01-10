@@ -5,15 +5,12 @@
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by
-      <%= @post.user.name %>
+      <%= @post.user.name %></p>
     </small>
+    <% if policy(@post).edit? %>
+      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %></p>
+    <% end %>
     <p><%= markdown @post.body %></p>
     <p><%= image_tag(@post.postimage.small.url) %></p>
-  </div>
-
-  <div class="col-md-4">
-    <% if policy(@post).edit? %>
-      <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
-    <% end %>
   </div>
 </div>
