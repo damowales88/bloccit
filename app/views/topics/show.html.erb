@@ -13,6 +13,7 @@
           <h4 class="media-heading">
             <%= link_to (markdown post.title), [@topic, post] %>
           </h4>
+              <p><%= image_tag(post.postimage.thumb.url) %></p>
             <small>
               <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
               submitted <%= time_ago_in_words(post.created_at) %> ago by

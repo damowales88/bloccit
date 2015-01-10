@@ -13,9 +13,10 @@ class PostsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
-    @post = current_user.posts.build(post_params)
-      authorize @post
-
+    @post = current_user.posts.build(params.require(:post).permit(:title, :body))
+    @post.topic = @topic
+    
+    authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
       redirect_to [@topic, @post]
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :postimage)
   end
 
 end
