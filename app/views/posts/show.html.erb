@@ -14,7 +14,7 @@
     <p><%= image_tag(@post.postimage.small.url) %></p>
 
     <% if current_user %>
-      <%= render file: "/Users/Damo/code/bloccit/app/views/comments/_form", locals: { topic: @topic, post: @post, comment: @comment } %>
+      <%= render template: "/Users/Damo/code/bloccit/app/views/comments/_form", locals: { topic: @topic, post: @post, comment: @comment } %>
     <% end %>
 
       <%= render file: "/Users/Damo/code/bloccit/app/views/comments/_comment" %>
