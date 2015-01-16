@@ -1,2 +1,7 @@
 <h1>About Bloccit</h1>
-<p>Create by: <%= current_user.name %></p>
+<p>Create by:</p>
+<% if current_user %>
+  <h4><%= current_user.name %></br>
+<% else %>
+  <h4>Some Guy</h4>
+<% end %>
