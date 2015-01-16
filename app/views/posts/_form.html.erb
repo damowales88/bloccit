@@ -9,12 +9,10 @@
       </ul>
     </div>
   <% end %>
-  <%= simple_form_for [topic, Post.new] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :body %>
-    <%= f.button :submit %>
-  <% end %>
+
   <%= form_group_tag(post.errors[:body]) do %>
+    <%= f.label :title %>
+    <%= f.text_area :title, rose: 1, class: 'form-control', placeholder: "Enter title" %>
     <%= f.label :body %>
     <%= f.text_area :body, rose: 8, class: 'form-control', placeholder: "Enter post body" %>
   <% end %>
