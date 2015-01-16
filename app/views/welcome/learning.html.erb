@@ -2,4 +2,9 @@
 <p>Hard to say if this is working </p>
 
 <p>Signed</p>
-<h4><%= current_user.name %></h4>
+<% if current_user %>
+  <h4><%= current_user.name %></br>
+  Holy shit, that's you! </h4>
+<% else %>
+  <h4>Some Guy</h4>
+<% end %>
