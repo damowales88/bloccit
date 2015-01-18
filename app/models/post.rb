@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  has_many :comments
+  has_many :comments, dependent: :destroy
   mount_uploader :postimage, PostimageUploader
   belongs_to :user
   belongs_to :topic
