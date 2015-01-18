@@ -5,7 +5,7 @@
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
         <sub><i> Submitted <%= time_ago_in_words(comment.created_at) %> ago </i></sub></p>
       <% if policy(comment).destroy? %>
-        <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+        <%= link_to "Delete", [@post, comment], method: :delete %>
       <% end %></p>
     <% end %>
     <%= will_paginate @comments %>
