@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def up_votes
     votes.where(value: 1).count
