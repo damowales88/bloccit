@@ -17,6 +17,8 @@
 
     <p><%= markdown @post.body %></p>
     <p><%= image_tag(@post.postimage.small.url) %></p>
+    
+    <%= render partial: 'favorites/favorite', locals: { post: @post } %>
 
     <% if current_user %>
       <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
