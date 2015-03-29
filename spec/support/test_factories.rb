@@ -20,4 +20,18 @@ module TestFactories
     user.save
     user
   end
+
+  FactoryGirl.define do
+    factory :user do
+      email 'test@example.com'
+      password 'f4k3p455w0rd'
+    end
+  end
+
+  def comment_without_email
+    @post = associated_post(user: @user)
+    @comment = Comment.new(user: @user, body: "A comment")
+    allow(@comment).to receive(:send_favorite_emails)
+    @comment.save
+  end
 end

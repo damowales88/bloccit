@@ -6,10 +6,7 @@ describe "Visiting profiles" do
 
   before do
     @user = authenticated_user
-    @post = associated_post(user: @user)
-    @comment = Comment.new(user: @user, body: "A comment")
-    allow(@comment).to receive(:send_favorite_emails)
-    @comment.save
+    comment_without_email
   end
 
   describe "not signed in" do
@@ -23,6 +20,28 @@ describe "Visiting profiles" do
       expect( page ).to have_content(@comment.body)
 
     end
+  end
+end
 
+describe "Visiting own profile" do
+
+  include  TestFactories
+
+  before do
+    @user = FactoryGirl.create(:user)
+    comment_without_email
+  end
+
+  describe "visiting the profile page" do
+
+    it "shows profile" do
+      visit user_path(@user)
+      expect(current_path).to eq(user_path(@user))
+
+      expect( page ).to have_content(@user.name)
+      expect( page ).to have_content(@post.title)
+      expect( page ).to have_content(@comment.body)
+
+    end
   end
 end
