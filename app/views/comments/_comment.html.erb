@@ -2,12 +2,12 @@
    <div class="col-md-4">
     <% @comments.each do |comment| %>
       <%= markdown comment.body %>
-      <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
+
         <sub><i> Submitted <%= time_ago_in_words(comment.created_at) %> ago </i></sub></p>
       <% if policy(comment).destroy? %>
-        <%= link_to "Delete", [@post, comment], method: :delete %>
+        <%= link_to "Delete", [comment.post, comment], method: :delete %>
       <% end %></p>
     <% end %>
-    <%= will_paginate @comments %>
+
    </div>
  <% end %>
