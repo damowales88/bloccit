@@ -76,6 +76,10 @@ gem 'fog'
 
 gem 'will_paginate', '~> 3.0.5'
 
+gem 'newrelic_rpm'
+
+gem 'puma'
+
 group :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara'
