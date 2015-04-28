@@ -5,7 +5,7 @@
 
         <sub><i> Submitted <%= time_ago_in_words(comment.created_at) %> ago </i></sub></p>
       <% if policy(comment).destroy? %>
-        <%= link_to "Delete", [comment.post, comment], method: :delete %>
+        <%= link_to "Delete", [comment.post, comment], method: :delete, remote: true %>
       <% end %></p>
     <% end %>
 
